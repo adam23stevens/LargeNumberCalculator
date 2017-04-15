@@ -1,0 +1,13 @@
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Concrete.deps.json
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\obj\Debug\netcoreapp1.1\Concrete.csprojResolveAssemblyReference.cache
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\obj\Debug\netcoreapp1.1\Concrete.AssemblyInfo.cs
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Concrete.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Concrete.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Abstract.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Data.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Entities.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Abstract.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Data.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\bin\Debug\netcoreapp1.1\Entities.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\obj\Debug\netcoreapp1.1\Concrete.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Concrete\obj\Debug\netcoreapp1.1\Concrete.pdb

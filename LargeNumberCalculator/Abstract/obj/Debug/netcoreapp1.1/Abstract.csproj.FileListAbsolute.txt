@@ -1,0 +1,9 @@
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\bin\Debug\netcoreapp1.1\Abstract.deps.json
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\bin\Debug\netcoreapp1.1\Abstract.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\bin\Debug\netcoreapp1.1\Abstract.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\bin\Debug\netcoreapp1.1\Entities.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\bin\Debug\netcoreapp1.1\Entities.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\obj\Debug\netcoreapp1.1\Abstract.csprojResolveAssemblyReference.cache
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\obj\Debug\netcoreapp1.1\Abstract.AssemblyInfo.cs
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\obj\Debug\netcoreapp1.1\Abstract.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\Abstract\obj\Debug\netcoreapp1.1\Abstract.pdb
