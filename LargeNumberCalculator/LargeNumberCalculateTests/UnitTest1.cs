@@ -46,27 +46,49 @@ namespace LargeNumberCalculateTests
         public void AddSimpleNumbers()
         {
             //Arrange
-            string number1 = "14";
-            string number2 = "58";
+            int number1 = 14;
+            int number2 = 58;
+            string knownAnswer = (number1 + number2).ToString();
 
             //Act
-            OperatorService add = new OperatorService(number1, number2);
+            OperatorService add = new OperatorService(number1.ToString(), number2.ToString());
             string answer = add.Calculate();
-            
+
             //Assert
-
-
+            Assert.AreEqual(knownAnswer, answer);
         }
 
         [TestMethod]
         public void AddNegativeNumbers()
         {
+            //Arrange            
+            int number1 = -154;
+            int number2 = -89;
+            string knownAnswer = (number1 + number2).ToString();
+
+            //Act
+            OperatorService add = new OperatorService(number1.ToString(), number2.ToString());
+            string answer = add.Calculate();
+
+            //Assert
+            Assert.AreEqual(knownAnswer, answer);
 
         }
 
         [TestMethod]
         public void AddReallyLargeNumbers()
         {
+            //Arrange
+            string number1 = "123456789101112131415161718192021222324252627282930";
+            string number2 = "302928272625242322212019181716151413121110987654321";
+            string knownAnswer = "426385061726354453627180899908172635445363614937251";
+
+            //Act
+            OperatorService add = new OperatorService(number1, number2);
+            string answer = add.Calculate();
+
+            //Assert
+            Assert.AreEqual(knownAnswer, answer);
 
         }
     }

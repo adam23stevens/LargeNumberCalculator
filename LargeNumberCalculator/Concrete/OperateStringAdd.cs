@@ -11,6 +11,7 @@ namespace Concrete
 
         public override string Calculate()
         {
+            IsNeg = Number1[0] == '-' && Number2[0] == '-';
             RemoveSigns();
 
             int cnt1 = Number1.Length - 1;
