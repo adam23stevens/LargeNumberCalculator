@@ -26,12 +26,13 @@ namespace LargeNumberCalculator.Controllers
 
         [HttpPost]
         [Route("AddNumbers")]
-        public IActionResult AddNumbers()
-        {
-            var number1 = "59";
-            var number2 = "52";
+        public IActionResult AddNumbers([FromBody] NumberReq req)
+        {            
             try
-            {
+            {                
+                var number1 = req.number1;
+                var number2 = req.number2;
+
                 OperatorService osService = new OperatorService(number1, number2);
 
                 Calculation calculation = new Calculation();
@@ -42,7 +43,7 @@ namespace LargeNumberCalculator.Controllers
                 calculation.Result = new OperatorService(number1, number2).Calculate();                
 
                 calcRepo.AddCalculationResult(calculation);
-                filer.AppendToFile(calculation);
+                //filer.AppendToFile(calculation);
             }
             catch (Exception ex)
             {
@@ -53,6 +54,7 @@ namespace LargeNumberCalculator.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllCalculations")]
         public async Task<IActionResult> GetAllCalculations()
         {
             var calculations = await calcRepo.GetCalculationResults();

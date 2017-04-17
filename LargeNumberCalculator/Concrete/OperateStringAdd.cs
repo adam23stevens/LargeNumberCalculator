@@ -39,6 +39,10 @@ namespace Concrete
                 carry = digitAdd / 10;
             }
 
+            if (carry > 0)
+            {
+                res += carry;
+            }
             res += IsNeg ? "-" : "";
             char[] retArray = res.ToCharArray();
             Array.Reverse(retArray);

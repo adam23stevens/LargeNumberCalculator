@@ -21,7 +21,8 @@ namespace Concrete
 
         public void AddCalculationResult(Calculation calculationObj)
         {
-            CalcContext.Add(calculationObj);            
+            CalcContext.Add(calculationObj);
+            CalcContext.SaveChanges();
         }
         
         public async Task<IEnumerable<Calculation>> GetCalculationResults()
