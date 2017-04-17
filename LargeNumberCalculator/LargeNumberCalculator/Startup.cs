@@ -37,7 +37,7 @@ namespace LargeNumberCalculator
 
             services.AddMvc();
 
-            services.AddScoped<IFiler, Filer>();
+            services.AddScoped<ICalcFiler, CalcFiler>();
             services.AddScoped<ICalculationRepo, CalculationRepo>();            
         }
 

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Concrete
 {
-    public class Filer : IFiler
+    public class CalcFiler : ICalcFiler
     {        
         private const string FileLocation = @"C:\AdamStevens_InterouteTest";
         private const string FilePath = FileLocation + @"\Calculations.txt";       
 
         const string headers = "Timestamp | Number 1 | Operator | Number 2 | Result";
 
-        public string WriteCalcLine(Calculation calculationObj)
+        private string WriteCalcLine(Calculation calculationObj)
         {
             string calcLine = $"{calculationObj.LogTime.ToString("dd-MM-yy HH:mm")} | " +
                               $"{calculationObj.Number1} | " +

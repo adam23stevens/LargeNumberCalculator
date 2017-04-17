@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Abstract
 {
-    public interface IFiler
-    {                
-        string WriteCalcLine(Calculation CalculationObj);        
+    public interface ICalcFiler
+    {                                
         void LogError(string errorMsg);
         void UpdateFiles(Task<IEnumerable<Calculation>> task);
     }

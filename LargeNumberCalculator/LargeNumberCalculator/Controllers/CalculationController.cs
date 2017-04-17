@@ -16,9 +16,9 @@ namespace LargeNumberCalculator.Controllers
     public class CalculationController : Controller
     {
         ICalculationRepo calcRepo;
-        IFiler filer;
+        ICalcFiler filer;
 
-        public CalculationController(ICalculationRepo ICalcRepo, IFiler Ifiler)
+        public CalculationController(ICalculationRepo ICalcRepo, ICalcFiler Ifiler)
         {
             calcRepo = ICalcRepo;
             filer = Ifiler;
@@ -42,8 +42,7 @@ namespace LargeNumberCalculator.Controllers
                 calculation.Operand = osService.OperandString;
                 calculation.Result = new OperatorService(number1, number2).Calculate();                
 
-                calcRepo.AddCalculationResult(calculation);
-                //filer.AppendToFile(calculation);
+                calcRepo.AddCalculationResult(calculation);                
             }
             catch (Exception ex)
             {
@@ -56,7 +55,7 @@ namespace LargeNumberCalculator.Controllers
         [HttpPut]
         [Route("SaveFile")]
         public IActionResult SaveFile()
-        {
+        {            
             filer.UpdateFiles(calcRepo.GetCalculationResults());
 
             return Ok();
