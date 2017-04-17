@@ -5,25 +5,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Concrete
 {
     public class Filer : IFiler
-    {
-        public Filer()
-        {
-            if (!File.Exists(FileLocation))
-            {
-                InitFile();
-            }
-        }
-
+    {        
         private const string FileLocation = @"C:\AdamStevens_InterouteTest";
         private const string FilePath = FileLocation + @"\Calculations.txt";       
 
         const string headers = "Timestamp | Number 1 | Operator | Number 2 | Result";
 
-        public void AppendToFile(Calculation calculationObj)
+        public string WriteCalcLine(Calculation calculationObj)
         {
             string calcLine = $"{calculationObj.LogTime.ToString("dd-MM-yy HH:mm")} | " +
                               $"{calculationObj.Number1} | " +
@@ -31,18 +24,16 @@ namespace Concrete
                               $"{calculationObj.Number2} | " +
                               $" = {calculationObj.Result}";
 
-            File.AppendAllText(FileLocation, calcLine);
+            return calcLine;
         }
 
-        private void InitFile()
+        private void WriteAllToPath(string lines)
         {
             if (!File.Exists(FilePath))
             {
-                Directory.CreateDirectory(FileLocation);                
-                //FileStream fs = new FileStream(FilePath, FileMode.CreateNew);
-
-                File.WriteAllText(FilePath, headers);                
+                Directory.CreateDirectory(FileLocation);                                                               
             }            
+            File.WriteAllText(FilePath, lines); 
         }        
 
         public void LogError(string errorMsg)
@@ -50,6 +41,20 @@ namespace Concrete
             string errorLine = $"{DateTime.Now.ToString("dd-MM-yy HH:mm")} - {errorMsg}";
 
             File.AppendAllText(FileLocation, errorLine);
+        }
+
+        public void UpdateFiles(Task<IEnumerable<Calculation>> task)
+        {
+            List<Calculation> ret = task.Result as List<Calculation>;
+
+            StringBuilder sb = new StringBuilder();
+            ret.ForEach(r => {
+                sb.AppendLine(headers);
+                sb.AppendLine(WriteCalcLine(r));
+                }
+            );
+
+            WriteAllToPath(sb.ToString());
         }
     }
 }

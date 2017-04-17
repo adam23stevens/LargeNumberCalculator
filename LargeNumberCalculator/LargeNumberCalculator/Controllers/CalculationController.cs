@@ -53,6 +53,15 @@ namespace LargeNumberCalculator.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        [Route("SaveFile")]
+        public IActionResult SaveFile()
+        {
+            filer.UpdateFiles(calcRepo.GetCalculationResults());
+
+            return Ok();
+        }
+
         [HttpGet]
         [Route("GetAllCalculations")]
         public async Task<IActionResult> GetAllCalculations()
