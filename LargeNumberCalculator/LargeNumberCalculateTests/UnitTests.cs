@@ -8,7 +8,7 @@ using Entities;
 namespace LargeNumberCalculateTests
 {
     [TestClass]
-    public class CalculationTest
+    public class UnitTests
     {
         [TestMethod]
         public void isAddOperandChosen()

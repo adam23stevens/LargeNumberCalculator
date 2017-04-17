@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace Concrete
 {
@@ -17,31 +18,32 @@ namespace Concrete
             }
         }
 
-        public string FileLocation
-        {
-            get
-            {
-                return @"C:\AdamStevens_InterouteTest\Calculations.txt";
-            }            
-        }        
+        private const string FileLocation = @"C:\AdamStevens_InterouteTest";
+        private const string FilePath = FileLocation + @"\Calculations.txt";       
+
+        const string headers = "Timestamp | Number 1 | Operator | Number 2 | Result";
 
         public void AppendToFile(Calculation calculationObj)
         {
-            string calcLine = $"{calculationObj.LogTime.ToString("dd-MM-yy HH:mm")} | " +                              
+            string calcLine = $"{calculationObj.LogTime.ToString("dd-MM-yy HH:mm")} | " +
                               $"{calculationObj.Number1} | " +
                               $"{calculationObj.Operand} | " +
-                              $"{calculationObj.Number2} | " +                              
+                              $"{calculationObj.Number2} | " +
                               $" = {calculationObj.Result}";
 
             File.AppendAllText(FileLocation, calcLine);
         }
 
-        public void InitFile()
+        private void InitFile()
         {
-            const string headers = "Timestamp | Number 1 | Operator | Number 2 | Result";
+            if (!File.Exists(FilePath))
+            {
+                Directory.CreateDirectory(FileLocation);                
+                //FileStream fs = new FileStream(FilePath, FileMode.CreateNew);
 
-            File.WriteAllText(FileLocation, headers);
-        }
+                File.WriteAllText(FilePath, headers);                
+            }            
+        }        
 
         public void LogError(string errorMsg)
         {

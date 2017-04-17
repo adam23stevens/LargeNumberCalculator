@@ -7,11 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 using Abstract;
 using Concrete;
 using Entities;
+using Newtonsoft.Json.Linq;
 
 namespace LargeNumberCalculator.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Calculation")]
+    [Route("api/[controller]")]
     public class CalculationController : Controller
     {
         ICalculationRepo calcRepo;
@@ -24,8 +25,11 @@ namespace LargeNumberCalculator.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddNumbers(string number1, string number2)
-        {                        
+        [Route("AddNumbers")]
+        public IActionResult AddNumbers()
+        {
+            var number1 = "59";
+            var number2 = "52";
             try
             {
                 OperatorService osService = new OperatorService(number1, number2);
@@ -46,6 +50,13 @@ namespace LargeNumberCalculator.Controllers
             }                       
 
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCalculations()
+        {
+            var calculations = await calcRepo.GetCalculationResults();
+            return Ok(calculations);
         }
     }
 }
