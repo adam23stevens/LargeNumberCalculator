@@ -7,7 +7,9 @@ namespace Concrete
 {
     public class OperateStringDivide : OperateString
     {        
-        public override string Calculate(string number1, string number2)
+        public OperateStringDivide(string number1, string number2) : base(number1, number2) { }
+
+        public override string Calculate()
         {
             throw new NotImplementedException();
         }

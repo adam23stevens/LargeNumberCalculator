@@ -11,3 +11,7 @@ C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculato
 C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\obj\Debug\netcoreapp1.1\LargeNumberCalculator.AssemblyInfo.cs
 C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\obj\Debug\netcoreapp1.1\LargeNumberCalculator.dll
 C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\obj\Debug\netcoreapp1.1\LargeNumberCalculator.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\bin\Debug\netcoreapp1.1\Abstract.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\bin\Debug\netcoreapp1.1\Concrete.dll
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\bin\Debug\netcoreapp1.1\Abstract.pdb
+C:\source\repos\LargeNumberCalculator\LargeNumberCalculator\LargeNumberCalculator\bin\Debug\netcoreapp1.1\Concrete.pdb

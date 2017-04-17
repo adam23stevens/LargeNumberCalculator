@@ -28,7 +28,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Abstract\Abstract.csproj" />
     <ProjectReference Include="..\Concrete\Concrete.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
 </Project>

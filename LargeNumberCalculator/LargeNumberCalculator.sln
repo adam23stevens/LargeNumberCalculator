@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concrete", "Concrete\Concre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{04AB2E1F-43F1-4699-8F6E-CA0423D178CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeNumberCalculateTests", "LargeNumberCalculateTests\LargeNumberCalculateTests.csproj", "{D165BFF3-D4E2-4741-8DAB-F54017852D4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{04AB2E1F-43F1-4699-8F6E-CA0423D178CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04AB2E1F-43F1-4699-8F6E-CA0423D178CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04AB2E1F-43F1-4699-8F6E-CA0423D178CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D165BFF3-D4E2-4741-8DAB-F54017852D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D165BFF3-D4E2-4741-8DAB-F54017852D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D165BFF3-D4E2-4741-8DAB-F54017852D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D165BFF3-D4E2-4741-8DAB-F54017852D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

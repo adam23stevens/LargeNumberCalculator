@@ -130,9 +130,6 @@
         }
       },
       "entities/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "1.1.1"
-        },
         "runtime": {
           "Entities.dll": {}
         }
