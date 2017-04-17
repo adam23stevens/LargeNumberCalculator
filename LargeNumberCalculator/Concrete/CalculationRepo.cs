@@ -5,49 +5,28 @@ using System.Collections.Generic;
 using Data;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Concrete
 {
     public class CalculationRepo : ICalculationRepo
     {
-        private const string FileLocation = @"C:\AdamStevens\CalculationTest\Calculations.txt";
+        private CalcContext CalcContext { get; set; }        
 
-        public CalculationRepo()
+        public CalculationRepo(CalcContext calcContext)
         {
-            if (!File.Exists(FileLocation))
-            {
-                const string headers = "Timestamp | Number 1 | Number 2 | Result";
-
-                File.WriteAllText(FileLocation, headers);                
-            }
+            CalcContext = calcContext;            
         }
 
         public void AddCalculationResult(Calculation calculationObj)
         {
-            string calcLine = $"{calculationObj.LogTime.ToString("dd-MM-yy HH:mm")} | " +
-                              $"{calculationObj.Number1} | " +
-                              $"{calculationObj.Number2} | " +
-                              $"{calculationObj.Result}";
-
-            File.AppendAllText(FileLocation, calcLine);
+            CalcContext.Add(calculationObj);            
         }
         
-        public IEnumerable<Calculation> GetCalculationResults()
+        public async Task<IEnumerable<Calculation>> GetCalculationResults()
         {
-            var ret = new List<Calculation>();
-            File.ReadAllLines(FileLocation).ToList().ForEach(cl =>
-            {
-                var line = cl.Trim().Split('|');
-                Calculation calc = new Calculation
-                {
-                    LogTime = Convert.ToDateTime(line[0]),
-                    Number1 = line[1],
-                    Number2 = line[2],
-                    Result = line[4]
-                };
-                ret.Add(calc);
-            });
-            return ret;
+            return await CalcContext.Calculations.ToListAsync();
         }
     }
 }

@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Data;
+using Abstract;
+using Concrete;
 
 namespace LargeNumberCalculator
 {
@@ -33,7 +35,10 @@ namespace LargeNumberCalculator
             services.AddEntityFrameworkInMemoryDatabase();
             services.AddDbContext<CalcContext>(opt => opt.UseInMemoryDatabase());
 
-            services.AddMvc();            
+            services.AddMvc();
+
+            services.AddScoped<IFiler, Filer>();
+            services.AddScoped<ICalculationRepo, CalculationRepo>();            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

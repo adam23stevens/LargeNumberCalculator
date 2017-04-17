@@ -7,7 +7,9 @@ namespace Concrete
 {
     public class OperateStringMultiply : OperateString
     {       
-        public override string Calculate(string number1, string number2)
+        public OperateStringMultiply(string number1, string number2) : base(number1, number2) { }
+
+        public override string Calculate()
         {
             throw new NotImplementedException();
         }

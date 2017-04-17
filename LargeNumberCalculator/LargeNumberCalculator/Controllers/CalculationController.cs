@@ -15,47 +15,35 @@ namespace LargeNumberCalculator.Controllers
     public class CalculationController : Controller
     {
         ICalculationRepo calcRepo;
+        IFiler filer;
 
-        public CalculationController(ICalculationRepo ICalcRepo)
+        public CalculationController(ICalculationRepo ICalcRepo, IFiler Ifiler)
         {
             calcRepo = ICalcRepo;
+            filer = Ifiler;
         }
 
         [HttpPost]
         public IActionResult AddNumbers(string number1, string number2)
-        {
-            Calculation calculation = new Calculation();
-            calculation.Number1 = number1;
-            calculation.Number2 = number2;
-            calculation.LogTime = DateTime.Now;
-            
-            //find out which operand to use.
-            //if neither or both numbers negative then operandAdd
-            //otherwise operandSubtract
-            OperateString operandStr;
-
-            if ((number1[0] == '-' && number2[0] == '-') 
-             || (number1[0] != '-' && number2[0] != '-'))
-            {
-                operandStr = new OperateStringAdd(number1[0] == '-' && number2[0] == '-');
-            }
-            else
-            {                
-                operandStr = new OperateStringSubtract();
-            }
-
+        {                        
             try
             {
-                var result = operandStr.Calculate(number1, number2);
-                calculation.Result = result;
-            }
-            catch
-            {
-                //Todo - add this into repo instead?
-                throw new Exception("There has been an error calculating. Please try again");                
-            }
+                OperatorService osService = new OperatorService(number1, number2);
 
-            calcRepo.AddCalculationResult(calculation);
+                Calculation calculation = new Calculation();
+                calculation.Number1 = number1;
+                calculation.Number2 = number2;
+                calculation.LogTime = DateTime.Now;
+                calculation.Operand = osService.OperandString;
+                calculation.Result = new OperatorService(number1, number2).Calculate();                
+
+                calcRepo.AddCalculationResult(calculation);
+                filer.AppendToFile(calculation);
+            }
+            catch (Exception ex)
+            {
+                filer.LogError(ex.Message);                
+            }                       
 
             return Ok();
         }
